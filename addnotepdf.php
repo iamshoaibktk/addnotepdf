@@ -225,6 +225,9 @@ class Addnotepdf extends Module
         // dump($params['object']->id_order);
         $id_order = $params['object']->id_order;
         $messsages = Message::getMessagesByOrderId($id_order);
+        if (empty($messsages)) {
+            return "";
+        }
         $this->context->smarty->assign(array('messsages' => $messsages));
         return $this->display(__FILE__ , 'views/templates/hook/invoiceMessage.tpl');
         // exit;
@@ -236,6 +239,9 @@ class Addnotepdf extends Module
         // dump($params['object']->id_order);
         $id_order = $params['object']->id_order;
         $messsages = Message::getMessagesByOrderId($id_order);
+        if (empty($messsages)) {
+            return "";
+        }
         $this->context->smarty->assign(array('messsages' => $messsages));
         return $this->display(__FILE__ , 'views/templates/hook/invoiceMessage.tpl');
         // exit;
